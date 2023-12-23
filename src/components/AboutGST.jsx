@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 const AboutGST = () => {
   return (
     <div className="aboutGst-container">
-      <h2>WHAT IS GST SUVIDHA CENTER® ?</h2>
+      <h2>WHAT IS GST SUVIDHA KENDRA® ?</h2>
       <p>
         GST Suvidha Center® is one step gateway which can help
         individual/business to earn sustainable income month to month basis by

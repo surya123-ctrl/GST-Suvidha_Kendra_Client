@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "../assets/gst_logo.png";
+import logo from "../assets/LAKSHYA.png";
 import { CiLocationOn } from "react-icons/ci";
 import { CiMail } from "react-icons/ci";
 import { IoIosPhonePortrait } from "react-icons/io";

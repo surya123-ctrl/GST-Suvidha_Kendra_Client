@@ -6,6 +6,9 @@ import ContactForm from './components/ContactForm'
 import Home from './components/Home';
 import Footer from './components/Footer';
 import Success from './components/Success';
+import GstTaxServices from './components/GstTaxServices';
+import Insurance from './components/Insurance';
+import Loan from './components/Loan';
 const App = () => {
   return (
     <div>
@@ -15,6 +18,9 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path="/contact" element={<ContactForm />} />
           <Route path="/success" element={<Success />} />
+          <Route path="/gstTaxServices" element={<GstTaxServices />} />
+          <Route path="/insurance" element={<Insurance />} />
+          <Route path="/loan" element={<Loan />} />
 
         </Routes>
         <Footer />

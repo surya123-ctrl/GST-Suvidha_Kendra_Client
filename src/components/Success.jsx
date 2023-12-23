@@ -4,7 +4,7 @@ const Success = () => {
   return (
     <div className="success-container">
       <h2>
-        Thanks for filling the form our agent will try to contact you soon!
+        Thanks for filling the form and our executive will contact you soon!
       </h2>
     </div>
   );

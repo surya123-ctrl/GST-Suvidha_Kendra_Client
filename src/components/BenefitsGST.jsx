@@ -34,10 +34,6 @@ const BenefitsGST = () => {
             Interactive <b>CRM</b> to order along with checklist of each
             service. Commission Payments twice in a month.
           </li>
-          <li>
-            <FaArrowCircleRight style={{ marginRight: "10px" }} />
-            Competitive Service Pricing. e.g <b>GST Registration is 100 Rs.</b>
-          </li>
         </ul>
       </div>
       <div className="image-side">

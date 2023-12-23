@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
-import logo from "../assets/gst_logo.png";
+import logo from "../assets/LAKSHYA.png";
 import Dropdown from "./Dropdown";
 
 const Navbar = () => {
@@ -121,13 +121,8 @@ const Navbar = () => {
   ];
 
   const insuranceLoanItems = [
-    { id: 1, label: "Salaried Loan", link: "/insurance-loan/salaried-loan" },
-    { id: 2, label: "Business Loan", link: "/insurance-loan/business-loan" },
-    {
-      id: 3,
-      label: "Insurance Transaction New Portal",
-      link: "/insurance/insurance-transaction-new-portal",
-    },
+    { id: 1, label: "Salaried Loan", link: "/loan/salaried-loan" },
+    { id: 2, label: "Business Loan", link: "/loan/business-loan" },
   ];
 
   return (
@@ -192,12 +187,12 @@ const Navbar = () => {
 
           <li className="nav-item">
             <a
-              href="/insurance-loan"
+              href="/loan"
               className={`nav-link ${isInsuranceLoanOpen ? "active" : ""}`}
               onMouseEnter={openInsuranceLoanDropdown}
               onMouseLeave={closeInsuranceLoanDropdown}
             >
-              Insurance Loan
+              Loan
               <RiArrowDropDownLine />
             </a>
             <Dropdown
