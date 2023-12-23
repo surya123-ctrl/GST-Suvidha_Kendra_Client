@@ -10,7 +10,7 @@ const AboutGST = () => {
         selling in demand services from anywhere - home/shop/office.
       </p>
       <Link to={"/contact"}>
-        <button className="btn-contact">Contact Us</button>
+        <button>Contact Us</button>
       </Link>
     </div>
   );

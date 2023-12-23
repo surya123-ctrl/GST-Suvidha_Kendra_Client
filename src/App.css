@@ -8,20 +8,25 @@ body {
 
 .navbar {
   /* background-color: #333; */
-  padding: 15px 0;
+  /* padding: 15px 0; */
   position: fixed;
   width: 100%;
   top: 0;
   z-index: 1000;
   height: 100px;
+  overflow-y: auto;
+  /* height: 100vh; */
+  /* margin-bottom: 10px; */
+  /* background-color: #4caf50; */
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 80%;
+  /* width: 80%; */
   margin: 0 auto;
+  background-color: #4caf50;
 }
 
 .navbar-logo {
@@ -74,6 +79,7 @@ body {
   padding: 0;
   position: absolute;
   /* background-color: #333; */
+  background-color: #4caf50;
   /* border: 1px solid black; */
   box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
   z-index: 1;
@@ -94,7 +100,7 @@ body {
   display: block;
 }
 .dropdown-link:hover {
-  background-color: #d4cece;
+  background-color: #fff;
 }
 .nav-item:hover .dropdown-menu,
 .nav-link.active + .dropdown-menu {
@@ -113,7 +119,7 @@ body {
     position: absolute;
     top: 60px;
     left: 0;
-    /* background-color: #333; */
+    background-color: #4caf50;
     text-align: center;
     padding: 10px;
     display: none;
@@ -139,7 +145,10 @@ body {
     display: block;
   }
 }
-
+.nav-item:hover .dropdown-menu,
+.nav-link.active + .dropdown-menu {
+  display: block;
+}
 /* Contact-Form */
 form {
   max-width: 400px;
@@ -169,9 +178,18 @@ textarea {
 button {
   background-color: #4caf50;
   color: #fff;
+  /*padding: 10px 15px;
+  border: none;
+  border-radius: 4px;
+  */ /*cursor: pointer;
+  */
   padding: 10px 15px;
   border: none;
   border-radius: 4px;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  -ms-border-radius: 4px;
+  -o-border-radius: 4px;
   cursor: pointer;
 }
 
@@ -193,7 +211,7 @@ form {
 /* Home component */
 .home-container {
   position: relative;
-  margin-top: 100px;
+  margin-top: 65px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -213,17 +231,6 @@ form {
   width: 100%;
   height: 90vh;
 }
-/* @media screen and (max-width: 768px) {
-  .youtube-container {
-    position: relative;
-    margin-top: 80px;
-  }
-
-  .youtube-container iframe {
-    height: 300px; /* Adjust the height as needed for mobile screens */
-/* } */
-/* }  */
-
 /* AboutGST component */
 
 .aboutGst-container {
@@ -303,6 +310,16 @@ form {
     font-size: 1rem;
   }
 }
+
+/* Success Component */
+
+.success-container {
+  /* height: 100vh; */
+  margin-top: 100px;
+  align-items: center;
+  text-align: center;
+}
+
 @media screen and (max-width: 1300px) {
   .benefitsGst-container .image-side {
     display: none;

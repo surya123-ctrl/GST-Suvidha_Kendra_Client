@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-// import { useHistory } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 const ContactForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -12,7 +13,6 @@ const ContactForm = () => {
     query: "",
   });
   const handleChange = async (event) => {
-    // const history = useHistory();
     const { name, value } = event.target;
     setFormData((prevData) => ({
       ...prevData,
@@ -28,10 +28,7 @@ const ContactForm = () => {
       );
       // Show a success toast
       toast.success("Form submitted successfully!");
-
-      // Optionally, you can redirect the user after successful form submission
-      //   history.push("/contact/success"); // Update with the desired success route
-      //   console.log("Form Data Submitted Successfully");
+      navigate("/success");
     } catch (error) {
       toast.error("Error submitting form. Please try again.");
       console.log(error);

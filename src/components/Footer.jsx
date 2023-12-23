@@ -12,16 +12,14 @@ const Footer = () => {
       </div>
       <div className="info-container">
         <div className="sub-info-container">
-          <CiLocationOn
-            style={{ "margin-top": "18px", "margin-right": "5px" }}
-          />
+          <CiLocationOn style={{ marginTop: "18px", marginRight: "5px" }} />
           <div className="sub-info-item">
             <h3>ADDRESS</h3>
             <p>Prayagraj</p>
           </div>
         </div>
         <div className="sub-info-container">
-          <CiMail style={{ "margin-top": "18px", "margin-right": "5px" }} />
+          <CiMail style={{ marginTop: "18px", marginRight: "5px" }} />
           <div className="sub-info-item">
             <h3>EMAIL ADDRESS</h3>
             <Link to="mailto:gskprayagraj@gmail.com">
@@ -31,7 +29,7 @@ const Footer = () => {
         </div>
         <div className="sub-info-container">
           <IoIosPhonePortrait
-            style={{ "margin-top": "18px", "margin-right": "5px" }}
+            style={{ marginTop: "18px", marginRight: "5px" }}
           />
           <div className="sub-info-item">
             <h3>PHONE NUMBER</h3>

@@ -1,36 +1,34 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import logo from "../assets/gst_logo.png";
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isGstTaxServicesOpen, setIsGstTaxServicesOpen] = useState(false);
   const [isInsuranceOpen, setIsInsuranceOpen] = useState(false);
   const [isInsuranceLoanOpen, setIsInsuranceLoanOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(false);
 
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
-    // Close all dropdowns when the navbar is toggled
     closeDropdowns();
   };
 
   const toggleGstTaxServicesDropdown = () => {
     setIsGstTaxServicesOpen(!isGstTaxServicesOpen);
-    // Close other dropdowns when this dropdown is toggled
     setIsInsuranceOpen(false);
     setIsInsuranceLoanOpen(false);
   };
 
   const toggleInsuranceDropdown = () => {
     setIsInsuranceOpen(!isInsuranceOpen);
-    // Close other dropdowns when this dropdown is toggled
     setIsGstTaxServicesOpen(false);
     setIsInsuranceLoanOpen(false);
   };
 
   const toggleInsuranceLoanDropdown = () => {
     setIsInsuranceLoanOpen(!isInsuranceLoanOpen);
-    // Close other dropdowns when this dropdown is toggled
     setIsGstTaxServicesOpen(false);
     setIsInsuranceOpen(false);
   };
@@ -40,6 +38,26 @@ const Navbar = () => {
     setIsInsuranceOpen(false);
     setIsInsuranceLoanOpen(false);
   };
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    handleResize(); // Check on initial load
+
+    window.addEventListener("resize", handleResize);
+
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (isMobile) {
+      closeDropdowns();
+    }
+  }, [isMobile]);
 
   return (
     <nav className="navbar">
@@ -321,5 +339,4 @@ const Navbar = () => {
     </nav>
   );
 };
-
 export default Navbar;
