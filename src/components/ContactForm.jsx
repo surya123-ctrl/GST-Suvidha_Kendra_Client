@@ -36,6 +36,7 @@ const ContactForm = () => {
   };
   return (
     <form onSubmit={handleSubmit}>
+      <h2>Write Us</h2>
       <label htmlFor="name">Name : </label>
       <input
         type="text"

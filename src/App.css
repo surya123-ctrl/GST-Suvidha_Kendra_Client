@@ -7,84 +7,69 @@ body {
 }
 
 .navbar {
-  /* background-color: #333; */
-  /* padding: 15px 0; */
-  position: fixed;
-  width: 100%;
-  top: 0;
-  z-index: 1000;
-  height: 100px;
-  overflow-y: auto;
-  /* height: 100vh; */
-  /* margin-bottom: 10px; */
-  /* background-color: #4caf50; */
+  background-color: #4caf50;
+  overflow: hidden;
 }
 
 .navbar-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* width: 80%; */
-  margin: 0 auto;
-  background-color: #4caf50;
+  padding: 15px;
 }
 
-.navbar-logo {
-  font-size: 1.5rem;
-  color: #fff;
-  text-decoration: none;
-}
 .navbar-logo img {
-  height: 60px;
-}
-.menu-icon {
-  font-size: 1.5rem;
-  /* color: #fff; */
-  cursor: pointer;
-  display: none;
+  height: 40px; /* Adjust the height as needed */
 }
 
-.menu-icon.open {
-  display: none;
+.menu-icon,
+.close-icon {
+  display: none; /* Initially hide both icons */
+  cursor: pointer;
+}
+
+.menu-icon {
+  font-size: 24px;
 }
 
 .close-icon {
-  font-size: 1.5rem;
-  /* color: #fff; */
-  cursor: pointer;
-  display: none;
+  font-size: 24px;
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .nav-menu {
-  list-style: none;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
 }
 
 .nav-item {
-  margin-right: 20px;
+  margin-right: 15px;
 }
 
 .nav-link {
+  color: #f2f2f2;
   text-decoration: none;
-  color: #000;
-  font-size: 1rem;
-  cursor: pointer;
-  font-weight: 700;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
+/* .nav-link:hover { */
+/* background-color: #ddd; */
+/* color: black;
+} */
+
 .dropdown-menu {
-  list-style: none;
-  padding: 0;
-  position: absolute;
-  /* background-color: #333; */
-  background-color: #4caf50;
-  /* border: 1px solid black; */
-  box-shadow: 0 2px 5px rgba(255, 255, 255, 0.2);
-  z-index: 1;
   display: none;
-  margin-top: 5px;
+  position: absolute;
+  background-color: #f9f9f9;
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  list-style: none;
 }
 
 .dropdown-menu.active {
@@ -92,62 +77,52 @@ body {
 }
 
 .dropdown-link {
+  padding: 12px 16px;
+  /* max-width: fit-content; */
+  width: max-content;
+  display: block;
   text-decoration: none;
-  color: #000;
-
-  font-size: 1rem;
-  padding: 10px;
-  display: block;
-}
-.dropdown-link:hover {
-  background-color: #fff;
-}
-.nav-item:hover .dropdown-menu,
-.nav-link.active + .dropdown-menu {
-  display: block;
+  color: #4caf50;
 }
 
-/* Adjustments for mobile screens */
+.menu-icon.open + .nav-menu,
+.close-icon + .nav-menu.active {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: #4caf50;
+  z-index: 2;
+}
+
 @media screen and (max-width: 768px) {
   .menu-icon {
-    display: block;
+    display: block; /* Display the menu icon for smaller screens */
   }
 
   .nav-menu {
+    display: none; /* Hide the nav menu by default for smaller screens */
     flex-direction: column;
-    width: 100%;
-    position: absolute;
-    top: 60px;
+    position: fixed;
+    top: 0;
     left: 0;
+    height: 100vh;
+    width: 100vw;
     background-color: #4caf50;
+    z-index: 2;
+    align-items: center;
     text-align: center;
-    padding: 10px;
-    display: none;
+  }
+  .nav-item {
+    margin: 15px 0;
   }
 
   .nav-menu.active {
-    display: flex;
+    display: flex; /* Display the nav menu when active (hamburger clicked) */
   }
-
-  .nav-item {
-    margin: 10px 0;
-  }
-
-  .dropdown-menu {
-    position: static;
-    background-color: transparent;
-    box-shadow: none;
-    display: block;
-    margin-top: 10px;
-  }
-
-  .close-icon {
-    display: block;
-  }
-}
-.nav-item:hover .dropdown-menu,
-.nav-link.active + .dropdown-menu {
-  display: block;
 }
 /* Contact-Form */
 form {
@@ -205,13 +180,13 @@ button:hover {
 }
 
 form {
-  margin-top: 110px;
+  margin-top: 10px;
 }
 
 /* Home component */
 .home-container {
   position: relative;
-  margin-top: 65px;
+  /* margin-top: 65px; */
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -320,7 +295,7 @@ form {
   text-align: center;
 }
 
-@media screen and (max-width: 1300px) {
+@media screen and (max-width: 1000px) {
   .benefitsGst-container .image-side {
     display: none;
   }

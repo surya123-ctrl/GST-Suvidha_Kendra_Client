@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import logo from "../assets/gst_logo.png";
+import Dropdown from "./Dropdown";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -38,7 +39,38 @@ const Navbar = () => {
     setIsInsuranceOpen(false);
     setIsInsuranceLoanOpen(false);
   };
+  const openGstTaxServicesDropdown = () => {
+    setIsGstTaxServicesOpen(true);
+    setIsInsuranceOpen(false);
+    setIsInsuranceLoanOpen(false);
+  };
 
+  const openInsuranceDropdown = () => {
+    setIsInsuranceOpen(true);
+    setIsGstTaxServicesOpen(false);
+    setIsInsuranceLoanOpen(false);
+  };
+
+  const openInsuranceLoanDropdown = () => {
+    setIsInsuranceLoanOpen(true);
+    setIsGstTaxServicesOpen(false);
+    setIsInsuranceOpen(false);
+  };
+  const closeGstTaxServicesDropdown = () => {
+    setIsGstTaxServicesOpen(false);
+  };
+
+  const closeInsuranceDropdown = () => {
+    setIsInsuranceOpen(false);
+  };
+
+  const closeInsuranceLoanDropdown = () => {
+    setIsInsuranceLoanOpen(false);
+  };
+  const closeNavbar = () => {
+    setIsOpen(false);
+    closeDropdowns();
+  };
   useEffect(() => {
     const handleResize = () => {
       setIsMobile(window.innerWidth <= 768);
@@ -59,12 +91,56 @@ const Navbar = () => {
     }
   }, [isMobile]);
 
+  const gstTaxServicesItems = [
+    { id: 1, label: "Accounting", link: "/gstTaxServices/accounting" },
+    { id: 2, label: "Audit", link: "/gstTaxServices/audit" },
+    { id: 3, label: "Banking", link: "/gstTaxServices/banking" },
+    { id: 4, label: "Cess", link: "/gstTaxServices/cess" },
+    { id: 5, label: "IEC", link: "/gstTaxServices/iec" },
+    { id: 6, label: "ITR", link: "/gstTaxServices/itr" },
+    { id: 7, label: "Micro ATM", link: "/gstTaxServices/micro-atm" },
+    { id: 8, label: "MSME", link: "/gstTaxServices/msme" },
+    { id: 9, label: "Other", link: "/gstTaxServices/other" },
+    { id: 10, label: "Tax", link: "/gstTaxServices/tax" },
+    { id: 11, label: "TDS", link: "/gstTaxServices/tds" },
+    { id: 12, label: "Trademark", link: "/gstTaxServices/trademark" },
+  ];
+
+  const insuranceItems = [
+    { id: 1, label: "New Insurance", link: "/insurance/new-insurance" },
+    {
+      id: 2,
+      label: "Insurance Transaction",
+      link: "/insurance/insurance -transaction",
+    },
+    {
+      id: 3,
+      label: "Insurance Transaction New Portal",
+      link: "/insurance/insurance-transaction-new-portal",
+    },
+  ];
+
+  const insuranceLoanItems = [
+    { id: 1, label: "Salaried Loan", link: "/insurance-loan/salaried-loan" },
+    { id: 2, label: "Business Loan", link: "/insurance-loan/business-loan" },
+    {
+      id: 3,
+      label: "Insurance Transaction New Portal",
+      link: "/insurance/insurance-transaction-new-portal",
+    },
+  ];
+
   return (
     <nav className="navbar">
       <div className="navbar-container">
         <div className="navbar-logo">
           <img src={logo} alt="Logo" />
         </div>
+        {isMobile && (
+          <div className="close-icon" onClick={closeNavbar}>
+            <FaTimes />
+          </div>
+        )}
 
         <div
           className={`menu-icon ${isOpen ? "open" : ""}`}
@@ -73,262 +149,66 @@ const Navbar = () => {
           {isOpen ? <FaTimes /> : <FaBars />}
         </div>
 
-        {isOpen && (
-          <div className="close-icon" onClick={toggleNavbar}>
-            <FaTimes />
-          </div>
-        )}
-
         <ul className={`nav-menu ${isOpen ? "active" : ""}`}>
           <li className="nav-item">
             <a href="/" className="nav-link" onClick={toggleNavbar}>
               Home
             </a>
           </li>
+
           <li className="nav-item">
             <a
               href="/gstTaxServices"
               className={`nav-link ${isGstTaxServicesOpen ? "active" : ""}`}
-              onClick={(e) => {
-                e.preventDefault();
-                toggleGstTaxServicesDropdown();
-              }}
+              onMouseEnter={openGstTaxServicesDropdown}
+              onMouseLeave={closeGstTaxServicesDropdown}
             >
               GST & Tax Services
               <RiArrowDropDownLine />
             </a>
-            <ul
-              className={`dropdown-menu ${
-                isGstTaxServicesOpen ? "active" : ""
-              }`}
-            >
-              {/* ... GST & Tax Services dropdown items ... */}
-              <li>
-                <a
-                  href="/gstTaxServices/accounting"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Accounting
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/audit"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Audit
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/coFormation"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Co. Formation
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/dsc"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  DSC
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/e-way"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  E-Way
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/fssai"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  FSSAI
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/gst"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  GST
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/iec"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  IEC
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/itr"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  ITR
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/micro-atm"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Micro ATM
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/msme"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  MSME
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/other"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Other
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/tax"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Tax
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/tds"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  TDS
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/gstTaxServices/trademark"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Trademark
-                </a>
-              </li>
-            </ul>
+            <Dropdown
+              isOpen={isGstTaxServicesOpen}
+              items={gstTaxServicesItems}
+              onItemClick={toggleNavbar}
+            />
           </li>
+
           <li className="nav-item">
             <a
               href="/insurance"
               className={`nav-link ${isInsuranceOpen ? "active" : ""}`}
-              onClick={(e) => {
-                e.preventDefault();
-                toggleInsuranceDropdown();
-              }}
+              onMouseEnter={openInsuranceDropdown}
+              onMouseLeave={closeInsuranceDropdown}
             >
               Insurance
               <RiArrowDropDownLine />
             </a>
-            <ul className={`dropdown-menu ${isInsuranceOpen ? "active" : ""}`}>
-              {/* ... Insurance dropdown items ... */}
-              <li>
-                <a
-                  href="/insurance/new-insurance"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  New Insurance
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/insurance/insurance-transaction"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Insurance Transaction
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/insurance/insurance-transaction-new-portal"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Insurance Transaction New Portal
-                </a>
-              </li>
-            </ul>
+            <Dropdown
+              isOpen={isInsuranceOpen}
+              items={insuranceItems}
+              onItemClick={toggleNavbar}
+            />
           </li>
+
           <li className="nav-item">
             <a
               href="/insurance-loan"
               className={`nav-link ${isInsuranceLoanOpen ? "active" : ""}`}
-              onClick={(e) => {
-                e.preventDefault();
-                toggleInsuranceLoanDropdown();
-              }}
+              onMouseEnter={openInsuranceLoanDropdown}
+              onMouseLeave={closeInsuranceLoanDropdown}
             >
               Insurance Loan
               <RiArrowDropDownLine />
             </a>
-            <ul
-              className={`dropdown-menu ${isInsuranceLoanOpen ? "active" : ""}`}
-            >
-              {/* ... Insurance Loan dropdown items ... */}
-              <li>
-                <a
-                  href="/insurance-loan/salaried-loan"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Salaried Loan
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/insurance-loan/business-loan"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Business Loan
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/insurance/insurance-transaction-new-portal"
-                  className="dropdown-link"
-                  onClick={toggleNavbar}
-                >
-                  Insurance Transaction New Portal
-                </a>
-              </li>
-            </ul>
+            <Dropdown
+              isOpen={isInsuranceLoanOpen}
+              items={insuranceLoanItems}
+              onItemClick={toggleNavbar}
+            />
           </li>
-          {/* ... Other menu items ... */}
+
+          {/* ... (other menu items) */}
+
           <li className="nav-item">
             <a href="/contact" className="nav-link" onClick={toggleNavbar}>
               Contact
@@ -339,4 +219,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;
