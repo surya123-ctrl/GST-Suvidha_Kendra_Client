@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Routes, BrowserRouter } from "react-rou
 import './App.css'
 import ContactForm from './components/ContactForm'
 import Home from './components/Home';
+import Footer from './components/Footer';
 const App = () => {
   return (
     <div>
@@ -13,6 +14,7 @@ const App = () => {
           <Route path='/' element={<Home />} />
           <Route path="/contact" element={<ContactForm />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
     </div>
   )
