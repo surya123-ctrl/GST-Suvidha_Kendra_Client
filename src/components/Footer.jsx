@@ -37,7 +37,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <b>Developer : </b>{" "}
+      <h5>Developer : </h5>{" "}
       <a
         href="https://www.linkedin.com/in/surya-pratap-singh-5378ba1b7/"
         target="_blank"
