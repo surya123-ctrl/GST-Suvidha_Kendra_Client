@@ -138,6 +138,20 @@ a {
   }
 }
 /* Contact-Form */
+.contact-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  /* padding: 3rem; */
+}
+.image-container {
+  /* max-height: 400px; */
+  width: 25%;
+  img {
+    object-fit: cover;
+    border-radius: 10%;
+  }
+}
 form {
   max-width: 400px;
   margin: auto;
@@ -190,6 +204,9 @@ button:hover {
 @media screen and (max-width: 600px) {
   form {
     max-width: 100%;
+  }
+  .image-container {
+    width: 0%;
   }
 }
 
@@ -505,4 +522,61 @@ a:hover:after {
   -moz-border-radius: 10px;
   -ms-border-radius: 10px;
   -o-border-radius: 10px;
+}
+
+/* SubComponent */
+.subComponent-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  /* align-items: center; */
+  justify-content: center;
+  color: white;
+}
+.subComponent-item {
+  border: 1px solid #c8ff00;
+  width: 15vw;
+  margin: 5px;
+  text-align: center;
+  /* line-height: 8.34vh; */
+  cursor: pointer;
+
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  transition: all 0.3s;
+  -webkit-transition: all 0.3s;
+  -moz-transition: all 0.3s;
+  -ms-transition: all 0.3s;
+  -o-transition: all 0.3s;
+}
+.subComponent-item:hover {
+  background-color: rgba(50, 48, 48, 0.7);
+  color: black;
+}
+.image-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: auto;
+}
+.imageTag {
+  width: 100%;
+  border-radius: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -ms-border-radius: 10px;
+  -o-border-radius: 10px;
+}
+@media screen and (max-width: 768px) {
+  .subComponent-item {
+    width: 28vw;
+  }
+  .userCount-container {
+    margin-top: 0vh;
+    margin-bottom: 10vh;
+  }
 }

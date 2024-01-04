@@ -1,9 +1,78 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import SubComponent from "./SubComponent";
+import gstImage from "../assets/goods-and-service-tax.png";
 const GstTaxServices = () => {
+  const subItems = [
+    {
+      id: 1,
+      name: "Accounting",
+      routeTo: "accounting",
+    },
+    {
+      id: 2,
+      name: "Audit",
+      routeTo: "audit",
+    },
+    {
+      id: 3,
+      name: "Banking",
+      routeTo: "banking",
+    },
+    {
+      id: 4,
+      name: "Cess",
+      routeTo: "cess",
+    },
+    {
+      id: 5,
+      name: "IEC",
+      routeTo: "iec",
+    },
+    {
+      id: 6,
+      name: "ITR",
+      routeTo: "itr",
+    },
+    {
+      id: 7,
+      name: "Micro ATM",
+      routeTo: "micro-atm",
+    },
+    {
+      id: 8,
+      name: "MSME",
+      routeTo: "msme",
+    },
+    {
+      id: 9,
+      name: "Other",
+      routeTo: "other",
+    },
+    {
+      id: 10,
+      name: "Tax",
+      routeTo: "tax",
+    },
+    {
+      id: 11,
+      name: "TDS",
+      routeTo: "tds",
+    },
+    {
+      id: 12,
+      name: "Trademark",
+      routeTo: "trademark",
+    },
+  ];
   return (
     <div className="services-container">
       <h1>GST (Goods and Services Tax)</h1>
+
+      <SubComponent subItems={subItems} />
+      <div className="imageContainer">
+        <img src={gstImage} alt="gstImage" className="imageTag" />
+      </div>
       <p>
         <b>GST (Goods and Services Tax)</b> and <b>Tax Services</b> play a
         pivotal role in the financial landscape of any country, providing a
@@ -23,7 +92,7 @@ const GstTaxServices = () => {
         consumer bears the ultimate tax burden.
         <br />
         <br />
-        <b>Components of GST: CGST (Central Goods and Services Tax):</b>
+        <h4>Components of GST: CGST (Central Goods and Services Tax):</h4>
         <br />
         Collected by the Central Government on intra-state transactions. SGST
         (State Goods and Services Tax): Collected by the State Government on
@@ -41,7 +110,7 @@ const GstTaxServices = () => {
         strategies for businesses.
         <br />
         <br />
-        <b>Importance of Tax Services:</b>
+        <h4>Importance of Tax Services:</h4>
         <br /> Tax Services encompass a broader spectrum, covering direct and
         indirect taxes, tax planning, and compliance. These services are crucial
         for individuals, businesses, and organizations to navigate the complex

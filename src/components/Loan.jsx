@@ -1,8 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import loanImage from "../assets/approved.png";
+import SubComponent from "./SubComponent";
 const Loan = () => {
+  const subItems = [
+    {
+      id: 1,
+      name: "Salaried Loan",
+      routeTo: "salaried-loan",
+    },
+    {
+      id: 2,
+      name: "Business Loan",
+      routeTo: "business-loan",
+    },
+  ];
   return (
     <div className="services-container">
+      <h1>Loan</h1>
+      <SubComponent subItems={subItems} />
+      <div className="imageContainer">
+        <img src={loanImage} alt="loanImage" className="imageTag" />
+      </div>
       <p>
         In the intricate tapestry of personal and business finance, loans emerge
         as powerful instruments facilitating economic growth, supporting
@@ -11,9 +30,9 @@ const Loan = () => {
         needs and challenges faced by individuals and enterprises.
       </p>
 
-      <p>
+      <h4>
         <strong>Salaried Loans: A Lifeline for Personal Endeavors</strong>
-      </p>
+      </h4>
 
       <p>
         Salaried individuals often find themselves in need of financial
@@ -33,9 +52,9 @@ const Loan = () => {
         immediate financial support.
       </p>
 
-      <p>
+      <h4>
         <strong>Key Features of Salaried Loans:</strong>
-      </p>
+      </h4>
 
       <ol>
         <li>
@@ -75,9 +94,9 @@ const Loan = () => {
         </li>
       </ol>
 
-      <p>
+      <h4>
         <strong>Business Loans: Empowering Entrepreneurial Ventures</strong>
-      </p>
+      </h4>
 
       <p>
         For businesses, access to capital is a fundamental requirement for
@@ -87,9 +106,9 @@ const Loan = () => {
         expand operations, or navigate challenging financial scenarios.
       </p>
 
-      <p>
+      <h4>
         <strong>Key Features of Business Loans:</strong>
-      </p>
+      </h4>
 
       <ol>
         <li>
@@ -129,9 +148,9 @@ const Loan = () => {
         </li>
       </ol>
 
-      <p>
+      <h4>
         <strong>Choosing the Right Loan:</strong>
-      </p>
+      </h4>
 
       <p>
         Selecting the appropriate loan depends on the borrower&#39;s specific
