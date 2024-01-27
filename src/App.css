@@ -4,8 +4,9 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
-  background-color: #000;
+  background-color: #14213d;
   color: white;
+  font-family: "Playfair Display", serif;
 }
 h1,
 h2,
@@ -13,14 +14,14 @@ h3,
 h4,
 h5,
 h6 {
-  color: #c8ff00;
+  color: #fca311;
 }
 a {
   text-decoration: none;
   color: white;
 }
 .navbar {
-  background-color: #000;
+  background-color: #14213d;
   overflow: hidden;
 }
 
@@ -152,6 +153,7 @@ a {
     border-radius: 10%;
   }
 }
+
 form {
   max-width: 400px;
   margin: auto;
@@ -209,6 +211,15 @@ button:hover {
     width: 0%;
   }
 }
+@media screen and (min-width: 800px) {
+  .imageContainer {
+    display: flex;
+    justify-content: center;
+  }
+  .imageContainer img {
+    width: 60%;
+  }
+}
 
 form {
   margin-top: 10px;
@@ -225,14 +236,41 @@ form {
 }
 
 .youtube-container {
-  position: absolute;
+  /* position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  overflow: hidden;
+  overflow: hidden; */
+  position: relative;
+}
+.youtube-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+  opacity: 0.6;
 }
 
+.youtube-container h1 {
+  font-family: "Playfair Display", serif;
+  position: absolute;
+  width: 100%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff; /* Set text color as needed */
+  font-size: 30px; /* Adjust font size as needed */
+}
+.youtube-container p {
+  position: absolute;
+  width: 100%;
+  top: 60%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+}
 .youtube-container iframe {
   width: 100%;
   height: 90vh;
@@ -244,7 +282,7 @@ form {
   margin-top: 10vh;
   text-align: center;
   width: 60%;
-  background-color: rgba(174, 0, 0, 0.514);
+  background-color: #3e5076;
   margin-bottom: 10vh;
 }
 .aboutGst-container h2 {
@@ -272,7 +310,7 @@ form {
 /* Footer component */
 .footer-container {
   margin-top: 20px;
-  background-color: black;
+  background-color: #14213d;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -316,6 +354,21 @@ form {
     font-size: 1rem;
   }
 }
+@media screen and (max-width: 530px) {
+  .youtube-container {
+    margin-top: 35px;
+  }
+  .youtube-container h1 {
+    font-size: 20px;
+    top: 30%;
+  }
+  .youtube-container p {
+    top: 40%;
+  }
+  .userCount-container {
+    margin-top: 0vh;
+  }
+}
 
 /* Success Component */
 
@@ -346,7 +399,7 @@ form {
 }
 
 .navbar {
-  background-color: #000; /* Navbar background color */
+  /* background-color: #000; Navbar background color */
   padding: 15px 0;
   display: flex;
   justify-content: space-between;
@@ -404,7 +457,7 @@ form {
   height: 2px;
   left: 50%;
   position: absolute;
-  background: #c8ff00;
+  background: #fca311;
   transition: width 0.3s ease 0s, left 0.3s ease 0s;
   width: 0;
 }
@@ -421,7 +474,7 @@ a:hover:after {
 .sub-menu {
   display: none;
   position: absolute;
-  background-color: #000; /* Submenu background color */
+  background-color: #14213d; /* Submenu background color */
   padding: 10px;
   border-radius: 4px;
 
@@ -450,7 +503,7 @@ a:hover:after {
     top: 70px; /* Adjust as needed */
     left: 0;
     width: 100%;
-    background-color: #000; /* Mobile menu background color */
+    background-color: #14213d; /* Mobile menu background color */
     z-index: 1;
     text-align: center;
     display: none;
@@ -477,7 +530,7 @@ a:hover:after {
 .sub-menu {
   display: none;
   position: absolute;
-  background-color: #000; /* Submenu background color */
+  background-color: #14213d; /* Submenu background color */
   padding: 10px;
   border-radius: 4px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
@@ -512,8 +565,8 @@ a:hover:after {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  margin-top: 96vh;
-  border: 2px solid #c8ff00;
+  margin-top: 10vh;
+  border: 2px solid #fca311;
   padding: 16px;
   font-size: 40px;
   width: 100px;
@@ -534,7 +587,7 @@ a:hover:after {
   color: white;
 }
 .subComponent-item {
-  border: 1px solid #c8ff00;
+  border: 1px solid #fca311;
   width: 15vw;
   margin: 5px;
   text-align: center;
@@ -576,7 +629,63 @@ a:hover:after {
     width: 28vw;
   }
   .userCount-container {
-    margin-top: 0vh;
+    margin-top: 30vh;
     margin-bottom: 10vh;
+  }
+}
+
+/* Register-login */
+.sign-container {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+  text-align: center;
+  margin: auto;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid #fca311;
+  border-radius: 5px;
+  padding: 20px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+@media screen and (max-width: 900px) {
+  .sign-container {
+    width: 80%;
+  }
+}
+@media screen and (max-width: 1400px) {
+  .image-container {
+    display: none;
+  }
+}
+
+.success {
+  color: green;
+  background-color: lightgreen;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+
+.error {
+  color: red;
+  background-color: lightcoral;
+  padding: 10px;
+  border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+}
+@media screen and (max-width: 530px) {
+  .userCount-container {
+    margin-top: 0vh;
   }
 }

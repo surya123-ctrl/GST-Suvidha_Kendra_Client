@@ -23,16 +23,14 @@ const ContactForm = () => {
   const handleSubmit = async (event) => {
     event.preventDefault();
     try {
-      await axios.post(
-        "https://gstsuvidhakendraserver.onrender.com/api/form",
-        formData
-      );
+      const response = await axios.post("http://localhost:8000/form", formData);
       // Show a success toast
+      console.log(response);
       toast.success("Form submitted successfully!");
       navigate("/success");
     } catch (error) {
       toast.error("Error submitting form. Please try again.");
-      console.log(error);
+      console.log(error.response.message);
     }
   };
   return (
