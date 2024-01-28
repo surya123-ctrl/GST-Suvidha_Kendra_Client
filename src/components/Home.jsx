@@ -9,7 +9,9 @@ const Home = () => {
   useEffect(() => {
     const fetchUserCount = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/userCount");
+        const response = await axios.get(
+          "https://gstsuvidhakendraserver.onrender.com/userCount"
+        );
         console.log("userCount : ", response.data.userCount);
         setUserCount(response.data.userCount);
       } catch (error) {

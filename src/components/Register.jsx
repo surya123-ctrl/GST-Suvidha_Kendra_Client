@@ -27,7 +27,7 @@ const Register = () => {
     try {
       console.log(formData);
       const response = await axios.post(
-        "http://localhost:8000/register",
+        "https://gstsuvidhakendraserver.onrender.com/register",
         formData
       );
       console.log("User registered successful");
