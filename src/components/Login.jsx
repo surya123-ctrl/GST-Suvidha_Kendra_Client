@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -22,6 +22,7 @@ const SignIn = ({ setToken, onLogin }) => {
       [name]: value,
     }));
   };
+
   const handleLogin = async (event) => {
     event.preventDefault();
     try {

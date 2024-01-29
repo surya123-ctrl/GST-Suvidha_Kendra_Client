@@ -22,6 +22,7 @@ const Register = () => {
       [name]: value,
     }));
   };
+
   const handleRegister = async (event) => {
     event.preventDefault();
     try {

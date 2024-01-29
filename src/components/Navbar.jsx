@@ -1,15 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { FaBars, FaTimes } from "react-icons/fa";
-import { RiArrowDropDownLine } from "react-icons/ri";
 import logo from "../assets/LAKSHYA.png";
-import Dropdown from "./Dropdown";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
-
+import { AuthContext } from "../contexts/AuthContext";
 import "./Navbar.css";
-const Navbar = ({ token, setToken }) => {
+const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isGSTTaxOpen, setIsGSTTaxOpen] = useState(false);
+  let loggedInDetails = useContext(AuthContext);
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -60,10 +58,9 @@ const Navbar = ({ token, setToken }) => {
     ));
   };
   const handleLogout = () => {
-    // Clear the 'token' cookie
-    document.cookie = "token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
-    // Remove the token from the state
-    setToken(null);
+    loggedInDetails.setIsLoggedIn(undefined);
+    console.log(loggedInDetails);
+    localStorage.removeItem("gst-user");
   };
   return (
     <nav className="navbar">
@@ -117,7 +114,7 @@ const Navbar = ({ token, setToken }) => {
               <button style={{ background: "red" }}>Register</button>
             </Link>
           </li>
-          {token ? (
+          {loggedInDetails.isLoggedIn !== undefined ? (
             <>
               <li className="nav-item">
                 <button onClick={handleLogout}>Logout</button>
