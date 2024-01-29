@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 const Register = () => {
   const navigate = useNavigate();
+  const [loading, setLoading] = useState(false);
   const [message, setMessage] = useState({
     type: "",
     text: "",
@@ -25,7 +26,9 @@ const Register = () => {
 
   const handleRegister = async (event) => {
     event.preventDefault();
+    if (loading) return;
     try {
+      setLoading(true);
       console.log(formData);
       const response = await axios.post(
         "https://gstsuvidhakendraserver.onrender.com/register",
@@ -84,7 +87,17 @@ const Register = () => {
         </Link>{" "}
         to login
       </p>
-      <button onClick={handleRegister}>Register</button>
+      <button
+        onClick={handleRegister}
+        disabled={loading}
+        style={{
+          cursor: loading ? "not-allowed" : "pointer",
+          background: loading ? "#e0e0e0" : "",
+          color: loading ? "#000" : "",
+        }}
+      >
+        {loading ? "Registering ..." : "Register"}
+      </button>
       <p className={message.type}>{message.text}</p>
     </div>
   );

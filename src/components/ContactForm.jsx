@@ -20,9 +20,12 @@ const ContactForm = () => {
       [name]: value,
     }));
   };
+  const [loading, setLoading] = useState(false);
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (loading) return;
     try {
+      setLoading(true);
       const response = await axios.post(
         "https://gstsuvidhakendraserver.onrender.com/form",
         formData
@@ -88,7 +91,17 @@ const ContactForm = () => {
           value={formData.query}
           onChange={handleChange}
         />
-        <button type="submit">Submit</button>
+        <button
+          type="submit"
+          disabled={loading}
+          style={{
+            cursor: loading ? "not-allowed" : "pointer",
+            background: loading ? "#e0e0e0" : "",
+            color: loading ? "#000" : "",
+          }}
+        >
+          {loading ? "Submitting ..." : "Submit"}
+        </button>
       </form>
     </div>
   );

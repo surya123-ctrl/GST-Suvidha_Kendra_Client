@@ -4,7 +4,7 @@ import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../contexts/AuthContext";
-const SignIn = ({ setToken, onLogin }) => {
+const SignIn = () => {
   const loggedInDetails = useContext(AuthContext);
   const navigate = useNavigate();
   const [message, setMessage] = useState({
@@ -15,6 +15,7 @@ const SignIn = ({ setToken, onLogin }) => {
     email: "",
     password: "",
   });
+  const [loading, setLoading] = useState(false);
   const handleChange = async (event) => {
     const { name, value } = event.target;
     setFormData((prevData) => ({
@@ -22,10 +23,12 @@ const SignIn = ({ setToken, onLogin }) => {
       [name]: value,
     }));
   };
-
   const handleLogin = async (event) => {
     event.preventDefault();
+    console.log("Login");
+    if (loading) return;
     try {
+      setLoading(true);
       console.log(formData);
       const response = await axios.post(
         "https://gstsuvidhakendraserver.onrender.com/login",
@@ -83,7 +86,17 @@ const SignIn = ({ setToken, onLogin }) => {
         </a>{" "}
         to register
       </p>
-      <button onClick={handleLogin}>Login</button>
+      <button
+        onClick={handleLogin}
+        disabled={loading}
+        style={{
+          cursor: loading ? "not-allowed" : "pointer",
+          background: loading ? "#e0e0e0" : "",
+          color: loading ? "#000" : "",
+        }}
+      >
+        {loading ? "Logging In..." : "Login"}
+      </button>
       <p className={message.type}>{message.text}</p>
     </div>
   );
