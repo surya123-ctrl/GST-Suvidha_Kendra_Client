@@ -1,11 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 import contactImage from "../assets/contact-us.jpg";
+import { AuthContext } from "../contexts/AuthContext";
 const ContactForm = () => {
+  const loggedInDetails = useContext(AuthContext);
   const navigate = useNavigate();
+  console.log(loggedInDetails);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -28,7 +31,12 @@ const ContactForm = () => {
       setLoading(true);
       const response = await axios.post(
         "https://gstsuvidhakendraserver.onrender.com/form",
-        formData
+        formData,
+        {
+          headers: {
+            Authorization: `Bearer ${loggedInDetails.isLoggedIn.token}`,
+          },
+        }
       );
       // Show a success toast
       console.log(response);

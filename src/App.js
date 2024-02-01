@@ -23,7 +23,7 @@ const App = () => {
           <Routes>
             <Route path='/' element={<Home />} />
             <Route path="/contact" element={<Private Component={ContactForm} />} />
-            <Route path="/success" element={<Success />} />
+            <Route path="/success" element={<Private Component={Success} />} />
             <Route path="/gstTaxServices" element={<Private Component={GstTaxServices} />} />
             <Route path="/insurance" element={<Private Component={Insurance} />} />
             <Route path="/loan" element={<Private Component={Loan} />} />

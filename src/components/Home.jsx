@@ -1,16 +1,23 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Youtube from "./Youtube";
 import AboutGST from "./AboutGST";
 import BenefitsGST from "./BenefitsGST";
 import axios from "axios";
 import UserCount from "./UserCount";
+import { AuthContext } from "../contexts/AuthContext";
 const Home = () => {
+  const loggedInDetails = useContext(AuthContext);
   const [userCount, setUserCount] = useState(0);
   useEffect(() => {
     const fetchUserCount = async () => {
       try {
         const response = await axios.get(
-          "https://gstsuvidhakendraserver.onrender.com/userCount"
+          "https://gstsuvidhakendraserver.onrender.com/userCount",
+          {
+            headers: {
+              Authorization: `Bearer ${loggedInDetails.isLoggedIn.token}`,
+            },
+          }
         );
         console.log("userCount : ", response.data.userCount);
         setUserCount(response.data.userCount);
