@@ -8,6 +8,9 @@ const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isGSTTaxOpen, setIsGSTTaxOpen] = useState(false);
   let loggedInDetails = useContext(AuthContext);
+  // console.log(loggedInDetails.isLoggedIn?.isAdmin);
+  // const isAdmin = loggedInDetails.isLoggedIn.isAdmin;
+  // console.log(isAdmin);
   const toggleNavbar = () => {
     setIsOpen(!isOpen);
   };
@@ -104,11 +107,21 @@ const Navbar = () => {
             </Link>
             <ul className="sub-menu">{renderMenuItems(insuranceLoanItems)}</ul>
           </li>
-          <li className="nav-item">
-            <Link to="/contact" onClick={toggleNavbar}>
-              Contact
-            </Link>
-          </li>
+          {!loggedInDetails.isLoggedIn?.isAdmin && (
+            <li className="nav-item">
+              <Link to="/contact" onClick={toggleNavbar}>
+                Contact
+              </Link>
+            </li>
+          )}
+          {loggedInDetails.isLoggedIn?.isAdmin && (
+            <li className="nav-item">
+              <Link to="/user-details" onClick={toggleNavbar}>
+                User Details
+              </Link>
+            </li>
+          )}
+
           <li className="nav-item">
             <Link to="/register" onClick={toggleNavbar} className="nav-item">
               <button style={{ background: "red" }}>Register</button>

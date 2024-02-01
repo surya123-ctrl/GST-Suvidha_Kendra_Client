@@ -13,6 +13,7 @@ import Register from './components/Register';
 import Login from './components/Login';
 import { AuthContext } from './contexts/AuthContext';
 import Private from './components/Private';
+import UserDetails from './components/UserDetails';
 const App = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(JSON.parse(localStorage.getItem("gst-user")));
   return (
@@ -27,6 +28,7 @@ const App = () => {
             <Route path="/gstTaxServices" element={<Private Component={GstTaxServices} />} />
             <Route path="/insurance" element={<Private Component={Insurance} />} />
             <Route path="/loan" element={<Private Component={Loan} />} />
+            {isLoggedIn?.isAdmin && <Route path="/user-details" element={<Private Component={UserDetails} />} />}
 
             <Route path='/register' element={<Register />} />
             <Route path='/login' element={<Login />} />
