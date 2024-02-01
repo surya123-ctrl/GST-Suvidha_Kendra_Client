@@ -7,11 +7,14 @@ const UserDetails = () => {
   useEffect(() => {
     const fetchUserDetails = async () => {
       try {
-        const response = await axios.get("http://localhost:8000/user-details", {
-          headers: {
-            Authorization: `Bearer ${loggedInDetails.isLoggedIn.token}`,
-          },
-        });
+        const response = await axios.get(
+          "https://gstsuvidhakendraserver.onrender.com/user-details",
+          {
+            headers: {
+              Authorization: `Bearer ${loggedInDetails.isLoggedIn.token}`,
+            },
+          }
+        );
         //   console.log(response.data);
         setUserDetails(response.data);
         console.log(userDetails);
