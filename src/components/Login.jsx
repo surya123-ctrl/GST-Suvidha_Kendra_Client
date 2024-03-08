@@ -55,6 +55,7 @@ const SignIn = () => {
         type: "error",
         text: `${error.response.data.message}`,
       });
+      setLoading(false);
       setTimeout(() => {
         toast.error(`${error.response.data.message}`);
       }, 2500);

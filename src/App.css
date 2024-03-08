@@ -629,7 +629,7 @@ a:hover:after {
     width: 28vw;
   }
   .userCount-container {
-    margin-top: 30vh;
+    /* margin-top: 30vh; */
     margin-bottom: 10vh;
   }
 }
@@ -687,6 +687,11 @@ a:hover:after {
 @media screen and (max-width: 530px) {
   .userCount-container {
     margin-top: 0vh;
+  }
+}
+@media screen and (max-width: 930px) {
+  .slider-container {
+    max-width: 90% !important;
   }
 }
 

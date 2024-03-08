@@ -6,18 +6,28 @@ const Insurance = () => {
   const subItems = [
     {
       id: 1,
-      name: "New Insurance",
-      routeTo: "new-insurance",
+      name: "Life Insurance (LIC)",
+      routeTo: "life-insurance-lic",
     },
     {
       id: 2,
-      name: "Insurance Transaction",
-      routeTo: "insurance-transaction",
+      name: "Vehicle Insurance",
+      routeTo: "vehicle-insurance",
     },
     {
       id: 3,
-      name: "Insurance Transaction New Portal",
-      routeTo: "insurance-transaction-new-portal",
+      name: "Commercial Vehicle Insurance",
+      routeTo: "commercial-vehicle-insurance",
+    },
+    {
+      id: 4,
+      name: "Health Insurance",
+      routeTo: "health-insurance",
+    },
+    {
+      id: 5,
+      name: "Term Insurance",
+      routeTo: "term-insurance",
     },
   ];
   return (

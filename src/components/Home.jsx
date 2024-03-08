@@ -5,6 +5,7 @@ import BenefitsGST from "./BenefitsGST";
 import axios from "axios";
 import UserCount from "./UserCount";
 import { AuthContext } from "../contexts/AuthContext";
+import ImageSlider from "./ImageSlider";
 const Home = () => {
   const loggedInDetails = useContext(AuthContext);
   const [userCount, setUserCount] = useState(0);
@@ -33,7 +34,8 @@ const Home = () => {
       <Youtube />
       <UserCount userCount={userCount} />
       <AboutGST />
-      <BenefitsGST />
+      {/* <BenefitsGST /> */}
+      <ImageSlider />
     </div>
   );
 };

@@ -33,16 +33,30 @@ const Navbar = () => {
   ];
 
   const insuranceItems = [
-    { id: 1, label: "New Insurance", link: "/insurance/new-insurance" },
+    {
+      id: 1,
+      label: "Life Insurance (LIC)",
+      link: "/insurance/life-insurance-lic",
+    },
     {
       id: 2,
-      label: "Insurance Transaction",
-      link: "/insurance/insurance -transaction",
+      label: "Vehicle Insurance",
+      link: "/insurance/vehicle-insurance",
     },
     {
       id: 3,
-      label: "Insurance Transaction New Portal",
-      link: "/insurance/insurance-transaction-new-portal",
+      label: "Commercial Vehicle Insurance",
+      link: "/insurance/commercial-vehicle-insurance",
+    },
+    {
+      id: 4,
+      label: "Health Insurance",
+      link: "/insurance/health-insurance",
+    },
+    {
+      id: 5,
+      label: "Term Insurance",
+      link: "/insurance/term-insurance",
     },
   ];
 
